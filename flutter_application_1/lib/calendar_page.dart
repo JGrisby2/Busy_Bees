@@ -203,7 +203,7 @@ class _CalendarPageState extends State<CalendarPage> {
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [Text(value[index].getUsername()),
-                          IconButton(onPressed: null, icon: Icon(Icons.delete))],
+                          IconButton(onPressed:() { value.removeAt(index); }, icon: const Icon(Icons.delete))],
                         )
                       ),
                     );
