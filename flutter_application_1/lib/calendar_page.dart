@@ -200,7 +200,11 @@ class _CalendarPageState extends State<CalendarPage> {
                       child: ListTile(
                         title: Text(value[index].getTitle()),
                         subtitle: Text(value[index].description),
-                        trailing: Text(value[index].getUsername()),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [Text(value[index].getUsername()),
+                          IconButton(onPressed: null, icon: Icon(Icons.delete))],
+                        )
                       ),
                     );
                   },
