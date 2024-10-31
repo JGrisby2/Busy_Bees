@@ -87,6 +87,7 @@ class _CalendarPageState extends State<CalendarPage> {
       });
     }
   }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -203,10 +204,17 @@ class _CalendarPageState extends State<CalendarPage> {
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [Text(value[index].getUsername()),
-                          IconButton(onPressed:() { value.removeAt(index); }, icon: const Icon(Icons.delete))],
-                        )
-                      ),
-                    );
+                          IconButton(onPressed: () { setState(() {
+                            if (value[index].getUsername() == FirebaseAuth.instance.currentUser?.displayName) {
+                              value.removeAt(index);
+                            }
+                            else {
+                              (null);
+                            }
+
+                            });}, icon: const Icon(Icons.delete)),
+        ]),
+                    ));
                   },
                 );
               },
